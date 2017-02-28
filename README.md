@@ -702,8 +702,9 @@ java.lang.SecurityException: Permission Denial: opening provider com.android.pro
 DFA算法
  
 ##### 2017-02-28 注解
-
-
-
+[深入理解Java：注解（Annotation）基本概念](http://www.cnblogs.com/peida/archive/2013/04/23/3036035.html)
+![](http://images.cnitblog.com/blog/34483/201304/25200814-475cf2f3a8d24e0bb3b4c442a4b44734.jpg)
+[ Java注解（2）-运行时框架](http://blog.csdn.net/duo2005duo/article/details/50511476)
+[Java中的注解是如何工作的？](http://www.importnew.com/10294.html)
 
 
