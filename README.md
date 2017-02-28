@@ -1,7 +1,5 @@
-清零模式，重新出发。
-记录每天的学习笔记和总结。以一个主题为周期(1天，2天，6天，7天，23等) 循序渐进
-
-
+归零，重新出发
+====
 
 ### 2017-02-04  抽象的原则
 
@@ -679,28 +677,33 @@ java.lang.SecurityException: Permission Denial: opening provider com.android.pro
 ##### 1. 依赖、关联、聚合和组合之间区别
 
 [设计模式中类的关系](http://blog.csdn.net/zhengzhb/article/details/7187278)
+```
+1. 依赖（Dependence）￼![](http://hi.csdn.net/attachment/201201/9/0_13260908301gJS.gif) 类A当中使用了类B，其中类B是作为类A的方法参数、方法中的局部变量、或者静态方法调用
+2. 关联（Association）￼![](http://hi.csdn.net/attachment/201201/9/0_13260909884nw0.gif) 单向关联表现为：类A当中使用了类B，其中类B是作为类A的成员变量。双向关联表现为：类A当中使用了类B作为成员变量；同时类B中也使用了类A作为成员变量
+3. 聚合（Aggregation）￼￼![](http://hi.csdn.net/attachment/201201/9/0_132609129950Sp.gif) 而聚合关系的对象之间存在着包容关系，他们之间是“整体-个体”的相互关系
+4. 组合（Composition）￼![](http://hi.csdn.net/attachment/201201/9/0_1326091487YvWr.gif) 他们之间是共生共死的；并且“部分”单独存在时没有任何意义
+5. 继承（Generalization）￼￼![](http://hi.csdn.net/attachment/201201/9/0_1326091748FS48.gif)
+6. 实现（Implementation）￼![](http://hi.csdn.net/attachment/201201/9/0_1326091794M0ju.gif)
+聚合是一种“整体-部分”的关系，组合也是一种“整体-部分”的关系，区别在于聚合中的整体和部分有着独立的生命周期，而组合中的整体和部分的是生命周期应该时一样的，java中实现貌似无法有体现这一点，而C++中能够体现
+其实很多书中，面向对象的关系不是六种，而是4种：依赖、关联、继承、实现。聚合和组合是比较特殊的关联关系。分为六种的其实就是把关联根据耦合度从小到大又分为了关联、聚合、组合。
+```
 
-[谈一谈自己对依赖、关联、聚合和组合之间区别的理解](http://blog.csdn.net/zhengzhb/article/details/7190158)
-```
-两个类到底是关联，还是聚合还是组合，取决于它们所处的具体环境。单单看代码，是无法区分的。
-```
 [组合 聚合 依赖 关联](http://www.cnblogs.com/Yogurshine/p/3634646.html)
-[UML关系(泛化,实现,依赖,关联(聚合,组合))](http://justsee.iteye.com/blog/808799)
-[学习UML实现、泛化、依赖、关联、聚合、组合 ](http://blog.chinaunix.net/uid-26111972-id-3326225.html)
+![](http://images.cnitblog.com/i/483061/201403/302134509224843.jpg)
 
 ```
 类之间的关系种类：Realization(实现)， Generalization(泛化)，Dependency(依赖)、Association(关联)、Aggregation(聚合)、Composition(合成或组合)。 其中，Aggregation(聚合)、Composition(合成)属于Association(关联)，是特殊的Association关联关系。
 
-
 ```
 
-#####2. ；注解
+##### 2017-02-19 敏感字过滤
+[Java实现敏感词过滤](http://blog.csdn.net/chenssy/article/details/26961957?spm=5176.8246799.blogcont.3.OOnhU6)
+
+DFA算法
+ 
+##### 2017-02-28 注解
 
 
-#####2. ；反射
-
-
-#####2. ；序列化&反序列化
 
 
 
