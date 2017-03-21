@@ -1,0 +1,583 @@
+有可能的情况下，同一个时间只做一件事情。
+
+
+
+9.taskAffinity左右以及adjustpan和adresize区别 alwaysRetainTaskState
+
+
+10.ReentrantReadWriteLock
+
+11.单例四种写法区别
+
+12.GradientDrawable
+
+13.级的内部类，也就是静态的成员式内部类，该内部类的实例与外部类的实例 没有绑定关系，而且只有被调用到才会装载，从而实现了延迟加载
+
+14.
+Connection to 10.12.0.50 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+NetBIOS over TCP disabled -- no workgroup available
+
+ubuntu通过smaba访问window7服务器提示上述错误。“不在一个工作组”
+
+
+15.幽灵图片 指的是什么	
+
+
+16.Android获取缓存大小和清除缓存
+
+17.Vector
+
+18.切换手机后
+Error:Execution failed for task ':androidkugou:transformClassesWithJarMergingForDebug'.
+> com.android.build.api.transform.TransformException: java.util.zip.ZipException: duplicate entry: 
+
+http://stackoverflow.com/questions/33209631/errorexecution-failed-for-task-apptransformclasseswithjarmergingfordebug
+
+19.ViewPager如何获取当前的子view
+setprimaryItem
+getPrimaryItem
+http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2013/0804/1504.html
+
+20.
+merge
+21.ViewSwitcher
+22.
+view.bringToFront
+23.
+GestureDetector
+    private static final int SHOW_PRESS = 1;
+    private static final int LONG_PRESS = 2;
+    private static final int TAP = 3;
+
+24.事件分发 ignored
+
+
+25.
+Error:(1, 0) Plugin with id 'com.android.application' not found.
+<a href="openFile:/home/yabinyang/work/androidkugou/build.gradle">Open File</a>
+
+
+26.Error:warning: Ignoring InnerClasses attribute for an anonymous inner class
+
+27.RuntimeException("Stub!") 导入android源码
+28.android双进程架构
+29.LayoutCast
+30.onLowMemory
+31.fragment声明周期onActivityCreated
+32.如何安全的stop线程
+如何停止一个正在运行的java线程 http://ibruce.info/2013/12/19/how-to-stop-a-java-thread/
+java多线程（八）为什么弃用stop和suspend http://blog.csdn.net/xingjiarong/article/details/47984659
+
+33.String.copyValueOf
+34.java 参数省略号用法
+
+35. adb shell monkey -p com.kugou.k6player -v 5000
+36.bindle.aidl.ontransact
+
+37.接口里面有抽象类？
+
+38.CommonConfigKeys.p2pparam_sqp2pswitch  p2p概念
+
+39.BigInteger
+
+40.api bi
+
+41.html基本标签含义 
+<u> xxxx </u> 下划线 eg:setText(Html.fromHtml("<u>" + "反馈给xxx" + "</u>"))
+<b> xxxx </b> 加粗
+
+42.dilog.setondismisslistener
+
+43.shape 的gradient用法
+
+44.activity.moveTaskToBack[退后到后台] 可用于连续两次返回，返回到桌面
+
+45.
+　调用commit()方法并不能立即执行transaction中包含的改变动作，commit()方法把transaction加入activity的UI线程队列中。
+
+　　但是，如果觉得有必要的话，可以调用executePendingTransactions()方法来立即执行commit()提供的transaction。
+如果丢失也没关系，那么使用commitAllowingStateLoss()方法
+
+46.View.setWillNotDraw
+
+
+
+
+47.LAYER_TYPE_SOFTWARE的应用场景
+ViewCompat.setLayerType(view, ViewCompat.LAYER_TYPE_SOFTWARE, null);
+
+在自定义View时有些方法在开启硬件加速的时候没有效果的问题，在API16之后确实有很多方法不支持硬件加速，通常我们关闭硬件加速都是在清单文件中通过，其实android也提供了针对特定View关闭硬件加速的方法,调用View.setLayerType(View.LAYER_TYPE_SOFTWARE, null);即可
+参考[Android 开发中，那些让你相见恨晚的方法、类或接口
+
+](http://gold.xitu.io/entry/570bf640df0eea0054ee2186)
+在个别应用场景中无法取得正确的cache图像，后来强制设置LAYER_TYPE_SOFTWARE解决了这个问题，应该是某些场景启用了硬件加速，造成无法取得TextView的drawingCache
+
+48. view setWillNotDraw的应用场景
+继承 FrameLayout，LinearLayout等都要使用这个方法，才会调用onDraw()方法
+
+解决方法：
+继承View的类的构造函数中加入下面的语句：
+
+        setWillNotDraw(false);
+参考
+[关于onDraw()方法不被执行的解决方法(setWillNotDraw)](http://blog.csdn.net/look85/article/details/8442675)
+
+49.ViewGroup setDescendantFocusability的应用场景
+
+这个函数是在ViewGroup里定义的，主要用于控制child View获取焦点的能力，比如是否阻止child View获取焦点。
+ 
+他有三个常量可供设置 
+FOCUS_BEFORE_DESCENDANTS ViewGroup本身先对焦点进行处理，如果没有处理则分发给child View进行处理
+FOCUS_AFTER_DESCENDANTS 先分发给Child View进行处理，如果所有的Child View都没有处理，则自己再处理
+FOCUS_BLOCK_DESCENDANTS ViewGroup本身进行处理，不管是否处理成功，都不会分发给ChildView进行处理
+参考[Android ViewGroup.setDescendantFocusability函数](http://flysnow.iteye.com/blog/1762556)
+
+50.性能优化 ListView的Item中，给TextView设置文本后滑动起来就变得卡了
+
+ViewCompat.setLayerType(mTxvSummary, ViewCompat.LAYER_TYPE_SOFTWARE, null);
+如果TextView 宽度自适应，则调用setText()会耗时较长，因此TextView宽度能固定的尽量设置成固定宽度
+
+http://www.eoeandroid.com/forum.php?mod=viewthread&action=printable&tid=547510
+
+51. view onAttachedToWindow
+
+52.viewpager  setChildrenDrawingOrderEnabled(boolean) 的作用
+```java
+getChildDrawingOrder与 isChildrenDrawingOrderEnabled()是属于ViewGroup的方法.
+
+getChildDrawingOrder 用于 返回当前迭代子视图的索引.就是说 获取当前正在绘制的视图索引.  如果需要改变ViewGroup子视图绘制的顺序,则需要重载这个方法.并且需要先调用 setChildrenDrawingOrderEnabled(boolean) 方法来启用子视图排序功能.
+
+isChildrenDrawingOrderEnabled()则是  获取当前这个ViewGroup是否是按照顺序进行绘制的.
+```
+参考[android ViewGroup getChildDrawingOrder与 isChildrenDrawingOrderEnabled()](http://www.mamicode.com/info-detail-160266.html)
+
+53. viewgroup requestLayout vs populate vs invalidate 使用场景区分
+isfirstLayout =true  --requestlayout; =false-- populate
+
+
+    /**
+     * Invalidate the whole view. If the view is visible,
+     * {@link #onDraw(android.graphics.Canvas)} will be called at some point in
+     * the future.
+     * <p>
+     * This must be called from a UI thread. To call from a non-UI thread, call
+     * {@link #postInvalidate()}.
+     */
+
+
+54. Runtime.getRuntime().exec
+
+55.Android应用程序如何获得系统签名权限
+
+56.使用ActivityManager的forceStopPackage方法结束进程
+http://blog.csdn.net/huxueyan521/article/details/8921976
+
+57.How to set font scale in my own android application?
+http://stackoverflow.com/questions/6786439/how-to-set-font-scale-in-my-own-android-application
+如果需要修改系统字体大小需要通过反射调用activitymanay.configure来修改，具体如下
+```java
+Class<?> classActivityManagerNative = Class.forName("android.app.ActivityManagerNative");
+                Object activityManagerNative = classActivityManagerNative.getMethod("getDefault").invoke(classActivityManagerNative);
+
+//                Configuration configuration = (Configuration) activityManagerNative.getClass().getMethod("getConfiguration").invoke(activityManagerNative);
+                activityManagerNative
+                        .getClass()
+                        .getMethod("updatePersistentConfiguration", android.content.res.Configuration.class)
+                        .invoke(activityManagerNative, configuration);
+```
+
+58.BlockingQueue的使用
+59.Executor的使用
+60.打包jar包供外部使用
+
+61.send broadcast:  ....has extras
+
+62.git pull --rebase 把自己修改的内容重新排序放到最前面，移除merger提示，更加美观
+
+
+63. ANR Input dispatching timed out (Waiting because no window has focus but there is a focused application that may eventually)
+The solution was to enable android:largeHeap="true" in the application part of AndroidManifest.
+
+http://stackoverflow.com/questions/33857793/anr-input-dispatching-timed-out-waiting-because-no-window-has-focus-but-there-i
+
+It usually happens in onClick handler doing some time consuming activity like getting resource from network or computing something complex. Use separate thread for that (UI thread) so that onclick handler can return and Window manager will continue.
+
+http://developer.android.com/resources/articles/painless-threading.html
+
+you can use Asynctask or postDelayed on view
+
+64.ANR(Application Not Response) found: keyDispatchingTimedOut, Process: com.kugou.k6player, PID: 4119
+
+解决参考:
+      
+描述：
+全称为Application Not Responding。当某个应用处于长期假死状态时Android系统会发出此异常。
+原因分析：
+这类问题属于app设计问题，复现条件较为苛刻，本地无法很好的复现，而云端有较为全面的各种环境，可以发现这类问题。
+Android默认为超过5000ms即5秒开始弹出ANR窗口。
+可能触发ANR的情况：
+1. 在UI线程中长时间的I/O处理，比如读写大文件，网络访问时造成的阻塞。
+2. 在UI线程中执行耗时的运算
+解决建议:
+1.单独开工作者线程，通过独立的Thread或使用类似AsyncTask，IntentService的方式来处理耗时的内容。
+2.耗时的操作尽量分段处理，使用类似状态机的方法，类似Symbian的活动对象将一个复杂的事情，分段执行。
+3.UI线程中不要处理过多耗时的内容
+参考连接：
+http://stackoverflow.com/questions/5513457/anr-keydispatchingtimedout-error
+
+65.BitmapCache.maintainInRetainFragment(getSupportFragmentManager())
+
+
+
+
+
+
+mViewPager = (ViewPager) mActivity.findViewById(R.id.comm_framework_pager);
+        mViewPagerShadow = mActivity.findViewById(R.id.comm_framework_pager_shadow);
+        mViewPager.setPageTransformer(false, new ViewPagerPageTransformer(mViewPagerShadow));
+        mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setOnPageChangeListener(this);
+
+        mPlayingBar = (TouchableRelativeLayout) mActivity.findViewById(R.id.comm_playing_bar);
+        initializePlayingBar();
+        setMenuCardIgnoredViews(null);//将播放bar条添加到忽略列表
+        mVerticalMenuCard.setDragDownView(mPlayingBar);
+        mVerticalMenuCard.setDragUpView(mViewPager);
+
+
+
+66. The Looper class instance count has over a limit(100). There should be some leakage of Looper or HandlerThread
+HandlerThread未执行 .quit(),造成后台 线程一直运行，当有大批量操作时造成应用崩溃
+
+[ E Looper : WARNING: The Looper class instance count has over a limit(100). There should be some l](http://blog.csdn.net/wds1181977/article/details/45146105)
+
+67.java.lang.NullPointerException: Attempt to invoke virtual method 'int java.lang.Integer.intValue()' on a null object reference
+
+
+68. org.json.JSONException: End of input at character 0 of 
+
+69. android编译时出现如下错误：java.lang.OutOfMemoryError: GC overhead limit exceeded
+原因：当GC为释放很小空间占用大量时间时抛出。一般是因为堆太小。导致异常的原因：没有足够的内存。参考http://tianya23.blog.51cto.com/1081650/1102778/
+解决方案
+1、查看系统是否有使用大内存的代码或死循环。
+2、可以添加JVM的启动参数来限制使用内存：-XX:-UseGCOverheadLimit
+
+70. androidstudio 如何修改JVM的启动参数
+修改位置在 xxx/android-studio/bin/studio64.vmoptions
+71. androidstudio 如何修改JVM的启动参数
+http://tsroad.lofter.com/post/376316_69363ae
+
+```
+编程语言分两种： - 编译型，先将人写的代码整个编译成汇编语言或机器语言，一条一条代码然后执行。 - 解释型，不需要编译，将人写的代码一条一条拿过来一次执行，先取一条，执行，完了再取下一条，然后在执行。
+而对于Java来说，这个情况就比较特殊了，因为在Java这里，JVM先是将Java代码整个编译成bytecode，然后在JVM内部再一条一条执行bytecode代码。你说它是编译型的吧，bytecode又不用编译成机器代码，二是一条条bytecode一次执行。你说它是解释型的吧，它又有一个编译的过程。对于Java到底是编译型还是解释型到现在也没有一个定论。不过，我们还是可以探讨一下Java的JIT编译技术。
+刚刚说了，在bytecode层面，代码是解释执行的。解释型的语言会比较慢，因为它没有办法根据上下文对代码进行优化。而编译型的语言则可以进行优化。Java的JIT技术，就是在bytecode解释执行的时候，它不一定是一条条解释执行的，二是取一段代码，编译成机器代码，然后执行，这样的话就有了上下文，可以对代码进行优化了，所以执行速度也会更快。
+可见，JIT技术结合了编译型（速度更快）和解释型语言（代码更灵活）二者的优势。对于动态语言的执行来说，是一个非常大的优势。
+```
+
+72. RemoteViews can only be used once
+
+73. xml 
+android:tag
+android:duplicateParentState 当前控件是否跟随父控件的(点击、焦点等)状态
+
+74. assert vs try catch
+
+75. Collections sort
+
+76. Hashtable ConcurrentHashMap SparseBooleanArray HashSet
+
+77.static volatile
+
+78. system.arraycopy
+
+
+79.error: there are still refs under 'refs' fatal: 无法为更新锁定引用: 是一个目录
+
+80. A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks. java.lang.Throwable: Explicit termination method 'close' not called
+
+81.java KeyValueList 可以通过hashmap或者hashtable实现
+
+82.压缩 jzlib DataZipUtil
+
+83.yyyy-MM-dd HH:mm:ss.SSS
+
+84.executorservice vs threadpoolexecutor vs new Thread
+
+http://stackoverflow.com/questions/16161941/exectuorservice-vs-threadpoolexecutor-which-is-using-linkedblockingqueue
+```
+Here is the source of Executors.newFixedThreadPool:
+
+ public static ExecutorService newFixedThreadPool(int nThreads) {
+    return new ThreadPoolExecutor(nThreads, nThreads,
+                                  0L, TimeUnit.MILLISECONDS,
+                                  new LinkedBlockingQueue<Runnable>());
+} 
+It internally uses ThreadPoolExecutor class with default configuration as you can see above. Now there are scenarios where default configuration is not suitable say instead of LinkedBlockingQueue a priority queue needs to be used etc. In such cases caller can directly work on underlying  ThreadPoolExecutor by instantiating it and passing desired configuration to it
+```
+
+85. 请求错误，可能发送在发送请求之前的本地错误，和网络返回错误。通过断点和抓包分析
+
+
+86.Executors 线程优先级
+Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+
+87.SmartGit 授权文件 Free Trial License to Non-Commercial To alter the license.
+
+First, go to
+
+Windows： %APPDATA%\syntevo\SmartGit\
+OS X：    ~/Library/Preferences/SmartGit/
+Unix/Linux：  ~/.smartgit/
+
+and remove the file settings.xml
+
+如果找不到，可以 到~/.smartgit/路径下 find ./* settings.xml 找到之后删除之，重新打开smartgit即可
+原文链接：http://gxl-ct001.iteye.com/blog/2070259
+
+
+88. GitHub push时出现“remote:Repository not found .repository ‘https://github.com/xxxx/xxx’ not found”
+
+查看是否设置代理  ～/.bashrc  /etc/en
+
+
+89. EventBus, register and registerSticky method
+```
+EventBus allows you to post events that are "sticky" and by that EventBus understands events that "stick to the eventbus" for future access.
+
+If you post a normal event when there are no subscribers registered at the moment of sending, this event will be discarded.
+
+You can post a sticky event though, even if there are no subscribers to receive that at the moment, and it won't be discarded (unless there is another sticky event posted in the future). When a subscriber registers with registerSticky the delivery of the last sticky event is also triggered.
+```
+参考 http://stackoverflow.com/questions/28051317/eventbus-register-and-registersticky-method
+
+
+91.Java - How to convert type collection into ArrayList?
+通过临时变量处理
+参考 http://stackoverflow.com/questions/1968068/java-how-to-convert-type-collection-into-arraylist
+
+
+
+92.SparseArray vs HashMap
+
+http://stackoverflow.com/questions/25560629/sparsearray-vs-hashmap
+
+```java
+Sparse arrays can be used to replace hash maps when the key is a primitive type. There are some variants for different key/value type even though not all of them are publicly available.
+
+Benefits are:
+
+Allocation-free
+No boxing
+Drawbacks:
+
+Generally slower, not indicated for large collections
+They won't work in non-android project
+HashMap can be replaced by the followings:
+
+SparseArray          <Integer, Object>
+SparseBooleanArray   <Integer, Boolean> 
+SparseIntArray       <Integer, Integer> 
+SparseLongArray      <Integer, Long> 
+LongSparseArray      <Long, Object>
+LongSparseLongArray  <Long, Long>   /
+```
+93. Eventbus poststick removestick
+(1) 事件分为一般事件和 Sticky 事件，相对于一般事件，Sticky 事件不同之处在于，当事件发布后，再有订阅者开始订阅该类型事件，依然能收到该类型事件最近一个 Sticky 事件
+(2) removeStickyEvent 函数用于删除 sticky 事件
+(3) stickyEventsSticky 事件保存队列，以 eventType 为 key，event 为元素，由此可以看出对于同一个 eventType 最多只会有一个 event 存在
+
+94. Please configure Android SDK
+检查下 buildToolsVersion的sdk是否有下载，没有下载就去下载下。出现这种情况可能是其他同事修改了build文件中的配置导致
+
+95.Error:Gradle project sync failed.Please fix you project and try again.
+一般这种问题是由于修改了gradle的版本导致的，比如，我更新android from2.1.2--->2.1.3 时，提醒我强烈推荐gradle使用2.14.1，我之前使用的是2.10.所以下载了gradle2.14.1，修改环境变量，修改 build.gradle以及gradle-wrappre.properties
+
+```
+1.Goto File -> Invalidate caches / Restart
+2.Shutdown Android Studio
+3.Rename/remove .gradle folder in the user home directory
+4.Restart Android Studio (It will download gradle metadata and data)
+5.Gradle build succeed
+6.Rebuild project
+7.Done
+
+```
+[Error running MyActivity: Gradle project sync failed. Please fix your project and try again](http://stackoverflow.com/questions/24778598/error-running-myactivity-gradle-project-sync-failed-please-fix-your-project-an)
+
+96.          
+使用相对布局 居中的一种方式  
+```java
+ <Space
+                android:id="@+id/player_indicator_space"
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true" />
+
+<ImageView
+                android:id="@+id/player_indicator_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:layout_toLeftOf="@id/player_indicator_space"
+                android:src="@drawable/ic_player_indicator_current" />
+
+
+            <ImageView
+                android:id="@+id/player_indicator_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/player_indicator_space"
+                android:src="@drawable/ic_player_indicator_common" />
+
+
+```
+
+
+97. android ctrl+shift+f 不格式化注释
+setting-->code Style-->java-->JavaDoc-->Enable javaDoc formatting[disable即可]
+
+
+98. 在AbsFrameworkFragment的onFragmentResume方法中设置了默认键盘弹出模式
+```java
+if (activityName.equals("MediaActivity")) { //只针对MediaActivity框架中使用的Fragment起作用
+                onInitSoftInputMode();
+            }
+
+    /**
+     *设置windowSoftInputMode属性 控制软键盘的弹出效果
+     * 此为默认实现,一般不需要更改，若更改则子类重写此方法
+     */
+    public void onInitSoftInputMode(){
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
+                | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+    }
+
+
+
+```
+
+所以要在对应的fragment中重写onInitSoftInputMode才可以在键盘弹起时，重新测量高度，显示出输入框
+```java
+    @Override
+    public void onInitSoftInputMode() {
+        getActivity().getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
+                        | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+    }
+```
+
+99. androidstudio升级到2.2后，Warning:The `android.dexOptions.incremental` property is deprecated and it has no effect on the build process.
+
+Information:Gradle tasks [:androidkugou:clean, :androidkugou:generateDebugSources, :androidkugou:mockableAndroidJar, :androidkugou:prepareDebugUnitTestDependencies, :androidkugou:generateDebugAndroidTestSources, :androidkugou:assembleDebug]
+Warning:The `android.dexOptions.incremental` property is deprecated and it has no effect on the build process.
+/home/yabinyang/work/kg2/androidkugou/androidcommon/build.gradle
+Error:(67, 1) A problem occurred configuring project ':androidkugou'.
+> A problem occurred configuring project ':androidkugou:androidcommon'.
+   > Could not get unknown property 'compileDebugAidl' for task set.
+
+
+[android.dexOptions.incremental property is deprecated](http://stackoverflow.com/questions/37522668/android-dexoptions-incremental-property-is-deprecated)
+
+```
+By default incremental is turned on Java compilation in 2.1.0-rc1 (2016/4/22) or later. So its redundant to declare it in build.gradle file.
+```
+
+
+
+
+100. java hash 生成规则
+101. 上级引用 下级应用
+102. binder通信机制 binder驱动
+
+Error:(2, 0) Plugin with id 'com.antfortune.freeline' not found.
+<a href="openFile:/home/yabinyang/work/bei/kg2/androidkugou/build.gradle">Open File</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.
+vmc_shadowDrawable作用
+
+vmc_bottomMenuOffset 顶部有playingbar offset为playingbar的高度
+
+vmc_menuIndicatorShadowSize
+vmc_menuIndicatorSize
+
+
+3.setWillNotDraw
+
+
+4.fragment
+setMenuVisibility
+setUserVisibleHint
+
+
+
+======android common start==========
+
+1.multiDex原理学习分析
+
+2.handle源码解析
+HandlerThread
+
+3.ViewDragHelper
+
+4.数据统计
+
+5.service
+
+6.推送
+
+7.扫描
+
+8.callback反射
+
+9.push
+
+10.换肤
+
+11.viewpager源码分析
+
+======android common end==========
+
+
+
