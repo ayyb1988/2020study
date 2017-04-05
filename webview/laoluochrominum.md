@@ -48,3 +48,7 @@
 #### 2017-3-22 Chromium的多线程 Callback线程间进行通信
 [Chromium多线程通信的Closure机制分析](http://blog.csdn.net/luoshengyang/article/details/46747797)
 
+Chromium里面使用了很多模板，我觉得主要是两个用处吧。第一个就让编译器自动生成代码。第二个是利用模板的静态特性做一些代码编译时检查，减少运行时的出错机会
+
+c++模板函数和模板类
+
